@@ -65,3 +65,5 @@ const calendar = (state = initialCalendarState, action) => {
       return state
   }
 }
+
+export default calendar
