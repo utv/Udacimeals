@@ -21,12 +21,12 @@ class App extends Component {
 
 function mapStateToProps(calendar) {
   const dayOrder = []
-  return {
-    calendar: dayOrder.map((day) => ({
-      day,
-      meals: Object.keys(calendar[day].reduce(() =>))
-    }))
-  }
+  // return {
+  //   calendar: dayOrder.map((day) => ({
+  //     day,
+  //     meals: Object.keys(calendar[day].reduce(() =>))
+  //   }))
+  // }
 }
 
 export default connect(mapStateToProps)(App);
