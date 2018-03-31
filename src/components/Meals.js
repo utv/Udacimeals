@@ -9,7 +9,7 @@ import Loading from 'react-loading'
 import { fetchRecipes } from '../utils/api'
 import FoodList from './FoodList'
 
-class App extends Component {
+class Meals extends Component {
   state = {
     foodModalOpen: false,
     meal: null,
@@ -161,4 +161,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App)
+)(Meals)

@@ -2,7 +2,10 @@ import { combineReducers } from 'redux'
 import {
   ADD_RECIPE,
   REMOVE_FROM_CALENDAR
-} from '../actions'
+} from '../actions/index'
+import {
+  ADD_TODO
+} from '../actions/todos'
 
 const initialCalendarState = {
   sunday: {
@@ -80,7 +83,24 @@ const calendar = (state = initialCalendarState, action) => {
   }
 }
 
+
+const todos = (state = [], action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      return [
+        ...state,
+        {
+          id: action.id,
+          text: action.text
+        }
+      ]
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   food,
-  calendar
+  calendar,
+  todos
 })

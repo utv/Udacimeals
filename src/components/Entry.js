@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
-import App from './App'
+import Meals from './Meals'
+import Todos from './Todos'
 
 const Entry = () => {
   return (
@@ -9,7 +10,8 @@ const Entry = () => {
         <li><Link to='/meals'>Meals</Link></li>
         <li><Link to='/todos'>Todos</Link></li>
       </ul>
-      <Route path='/meals' render={() => <App />} />
+      <Route path='/meals' render={() => <Meals />} />
+      <Route path='/todos' render={() => <Todos />} />
     </div>
   )
 }
