@@ -1,20 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions/todos'
+import { addTodo, toggleTodo } from '../actions/todos'
 
 class Todos extends React.Component {
   handleTextKeyPress = e => {
     if (e.key === 'Enter' && this.textInput) {
-      console.log(e.key)
       const id = new Date()
       const text = this.textInput.value
-      this.props.addTodo(id, text)
+      this.props.addTodo({ text, id })
       this.textInput.value = ''
     }
   }
 
   handleToggle = todoId => {
-    // this.props.toggleTodo(todoId)
+    this.props.toggleTodo(todoId)
   }
 
   render() {
@@ -31,10 +30,10 @@ class Todos extends React.Component {
           {todos.allTodos && todos.allTodos.map(todo =>
             <li
               key={todo.id}
-            // style={{
-            //   textDecoration: todo.completed ? "line-through" : "none"
-            // }}
-            // onClick={e => this.handleToggle(todo.id)}
+              style={{
+                textDecoration: todo.completed ? "line-through" : "none"
+              }}
+              onClick={e => this.handleToggle(todo.id)}
             >
               {todo.text}
             </li>
@@ -50,11 +49,11 @@ const mapStateToProps = state => {
 }
 
 // const mapDispatchToProps = dispatch => ({
-//   addTodo
-//   // toggleTodo
+//   addTodo: todo => dispatch(addTodo(todo)),
+//   toggleTodo: todoId => dispatch(toggleTodo(todoId))
 // })
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleTodo }
 )(Todos)

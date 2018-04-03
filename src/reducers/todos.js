@@ -19,15 +19,15 @@ const allTodos = (state = [], action) => {
         }
       ]
 
-    // case TOGGLE_TODO:
-    //   return state.map(todo => {
-    //     if (todo.id === action.id)
-    //       return {
-    //         ...todo,
-    //         completed: !todo.completed
-    //       }
-    //     return todo
-    //   })
+    case TOGGLE_TODO:
+      return state.map(todo => {
+        if (todo.id === action.id)
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        return todo
+      })
     default:
       return state
   }
