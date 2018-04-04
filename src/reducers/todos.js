@@ -43,13 +43,13 @@ const visibilityFilter = (state = SHOW_ALL, action) => {
   }
 }
 
-export function todos(state = {}, action) {
-  return {
-    visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-    allTodos: allTodos(state.allTodos, action)
-  }
-}
+// export function todos(state = {}, action) {
+//   return {
+//     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
+//     allTodos: allTodos(state.allTodos, action)
+//   }
+// }
 
-// export const todos = combineReducers({
-//   allTodos, visibilityFilter
-// })
+export const todos = combineReducers({
+  allTodos, visibilityFilter
+})
