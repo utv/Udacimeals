@@ -33,8 +33,7 @@ const allTodos = (state = [], action) => {
   }
 }
 
-const { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } = VisibilityFilters
-const visibilityFilter = (state = SHOW_ALL, action) => {
+const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
       return action.filter

@@ -63,7 +63,7 @@ class Todos extends React.Component {
         </ul>
         <span>Show: </span>
         <ul style={{ display: 'inline' }}>
-          {Object.values(VisibilityFilters).map(filter => (
+          {Object.values(VisibilityFilters).map(filter =>
             <li
               key={filter}
               style={{
@@ -75,7 +75,7 @@ class Todos extends React.Component {
             >
               {filter}
             </li>
-          ))}
+          )}
         </ul>
       </div>
     )
