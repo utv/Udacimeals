@@ -26,9 +26,20 @@ class Todos extends React.Component {
     this.props.setVisibilityFilter(filter)
   }
 
+  getVisibleTodos = (todos, filter) => {
+    switch (filter) {
+      case VisibilityFilters.SHOW_ACTIVE:
+        return todos.filter(todo => !todo.completed)
+      case VisibilityFilters.SHOW_COMPLETED:
+        return todos.filter(todo => todo.completed)
+      default:
+        return todos
+    }
+  }
+
   render() {
-    const { todos } = this.props
-    console.log(todos)
+    const { allTodos, visibilityFilter } = this.props.todos
+    const visibleTodos = this.getVisibleTodos(allTodos, visibilityFilter)
     return (
       <div>
         <p>Todos App</p>
@@ -37,7 +48,7 @@ class Todos extends React.Component {
           type='text'
           onKeyPress={this.handleTextKeyPress} />
         <ul>
-          {todos.allTodos && todos.allTodos.map(todo =>
+          {visibleTodos.map(todo =>
             <li key={todo.id}>
               <span
                 style={{
@@ -58,7 +69,7 @@ class Todos extends React.Component {
               style={{
                 display: 'inline',
                 marginLeft: '4px',
-                fontWeight: filter === todos.visibilityFilter ? 'bold' : 'normal'
+                fontWeight: filter === visibilityFilter ? 'bold' : 'normal'
               }}
               onClick={e => this.handleFilterClick(filter)}
             >
